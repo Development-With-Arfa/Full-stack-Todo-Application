@@ -1,0 +1,324 @@
+openapi: 3.1.0
+info:
+  title: Task Management API - Authentication Endpoints
+  description: Better Auth authentication endpoints for user registration and sign-in
+  version: 2.0.0
+  contact:
+    name: Todo App Team
+
+servers:
+  - url: http://localhost:3000
+    description: Development server (Next.js frontend)
+
+paths:
+  /api/auth/sign-up:
+    post:
+      summary: Register a new user account
+      description: Creates a new user account with email and password credentials
+      operationId: signUp
+      tags:
+        - Authentication
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - email
+                - password
+                - name
+              properties:
+                email:
+                  type: string
+                  format: email
+                  description: User's email address (must be unique)
+                  example: user@example.com
+                password:
+                  type: string
+                  format: password
+                  minLength: 8
+                  description: Password (min 8 chars, must contain letter and number)
+                  example: Password123
+                name:
+                  type: string
+                  description: User's display name
+                  example: John Doe
+      responses:
+        '200':
+          description: User successfully registered
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  user:
+                    $ref: '#/components/schemas/User'
+                  session:
+                    $ref: '#/components/schemas/Session'
+          headers:
+            Set-Cookie:
+              description: Session cookie (HTTP-only)
+              schema:
+                type: string
+        '400':
+          description: Invalid request (validation error)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                weakPassword:
+                  value:
+                    error: "Password must be at least 8 characters"
+                invalidEmail:
+                  value:
+                    error: "Invalid email format"
+        '409':
+          description: Email already registered
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                error: "Email already registered"
+
+  /api/auth/sign-in:
+    post:
+      summary: Sign in to existing account
+      description: Authenticates user with email and password, returns session
+      operationId: signIn
+      tags:
+        - Authentication
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - email
+                - password
+              properties:
+                email:
+                  type: string
+                  format: email
+                  description: User's email address
+                  example: user@example.com
+                password:
+                  type: string
+                  format: password
+                  description: User's password
+                  example: Password123
+      responses:
+        '200':
+          description: Successfully authenticated
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  user:
+                    $ref: '#/components/schemas/User'
+                  session:
+                    $ref: '#/components/schemas/Session'
+          headers:
+            Set-Cookie:
+              description: Session cookie (HTTP-only)
+              schema:
+                type: string
+        '401':
+          description: Invalid credentials
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                error: "Invalid email or password"
+
+  /api/auth/sign-out:
+    post:
+      summary: Sign out current user
+      description: Invalidates the current session
+      operationId: signOut
+      tags:
+        - Authentication
+      security:
+        - cookieAuth: []
+      responses:
+        '200':
+          description: Successfully signed out
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+        '401':
+          description: Not authenticated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /api/auth/session:
+    get:
+      summary: Get current session
+      description: Returns the current user session if authenticated
+      operationId: getSession
+      tags:
+        - Authentication
+      security:
+        - cookieAuth: []
+      responses:
+        '200':
+          description: Current session
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  user:
+                    $ref: '#/components/schemas/User'
+                  session:
+                    $ref: '#/components/schemas/Session'
+        '401':
+          description: Not authenticated
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  user:
+                    type: null
+                  session:
+                    type: null
+
+  /api/auth/token:
+    get:
+      summary: Get JWT token
+      description: Returns a JWT token for API authentication (requires active session)
+      operationId: getToken
+      tags:
+        - Authentication
+      security:
+        - cookieAuth: []
+      responses:
+        '200':
+          description: JWT token issued
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  token:
+                    type: string
+                    description: JWT Bearer token
+                    example: eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9...
+        '401':
+          description: Not authenticated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /api/auth/jwks:
+    get:
+      summary: Get JSON Web Key Set
+      description: Returns public keys for JWT verification
+      operationId: getJWKS
+      tags:
+        - Authentication
+      responses:
+        '200':
+          description: JWKS with public keys
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  keys:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        kty:
+                          type: string
+                          example: OKP
+                        use:
+                          type: string
+                          example: sig
+                        kid:
+                          type: string
+                          example: key-id-123
+                        alg:
+                          type: string
+                          example: EdDSA
+                        crv:
+                          type: string
+                          example: Ed25519
+                        x:
+                          type: string
+                          description: Public key
+
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique user identifier
+          example: "123"
+        email:
+          type: string
+          format: email
+          description: User's email address
+          example: user@example.com
+        name:
+          type: string
+          description: User's display name
+          example: John Doe
+        createdAt:
+          type: string
+          format: date-time
+          description: Account creation timestamp
+          example: "2026-02-07T12:00:00Z"
+
+    Session:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Session identifier
+          example: session-abc123
+        userId:
+          type: string
+          description: User ID associated with session
+          example: "123"
+        expiresAt:
+          type: string
+          format: date-time
+          description: Session expiration timestamp
+          example: "2026-02-08T12:00:00Z"
+
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+          description: Error message
+          example: "Invalid credentials"
+
+  securitySchemes:
+    cookieAuth:
+      type: apiKey
+      in: cookie
+      name: better-auth.session_token
+      description: Session cookie set by Better Auth
+
+tags:
+  - name: Authentication
+    description: User authentication and session management
