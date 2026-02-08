@@ -1,0 +1,130 @@
+
+> frontend@0.1.0 dev
+> next dev
+
+▲ Next.js 16.1.6 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://172.30.16.1:3000
+- Environments: .env.local
+
+✓ Starting...
+✓ Ready in 3.2s
+○ Compiling / ...
+ GET / 200 in 7.0s (compile: 6.4s, render: 626ms)
+ GET / 200 in 106ms (compile: 20ms, render: 87ms)
+○ Compiling /api/auth/[...all] ...
+[Error [BetterAuthError]: Failed to initialize database adapter]
+⨯ unhandledRejection: [Error [BetterAuthError]: Failed to initialize database adapter]
+⨯ unhandledRejection:  [Error [BetterAuthError]: Failed to initialize database adapter]
+ POST /api/auth/sign-up/email 405 in 466ms (compile: 418ms, render: 48ms)
+Unhandled Rejection: [Error [BetterAuthError]: Failed to initialize database adapter]
+ POST /api/auth/sign-up/email 405 in 44ms (compile: 23ms, render: 21ms)
+Unhandled Rejection: [Error [BetterAuthError]: Failed to initialize database adapter]
+ GET /api/auth/jwks 405 in 38ms (compile: 22ms, render: 15ms)
+Unhandled Rejection: [Error [BetterAuthError]: Failed to initialize database adapter]
+ GET / 200 in 369ms (compile: 66ms, render: 303ms)
+○ Compiling /tasks ...
+ GET /tasks 200 in 3.7s (compile: 3.3s, render: 460ms)
+ GET /api/auth/get-session 405 in 42ms (compile: 26ms, render: 16ms)
+ GET /api/auth/token 405 in 25ms (compile: 8ms, render: 17ms)
+ GET /auth/signin 200 in 1540ms (compile: 1454ms, render: 87ms)
+Unhandled Rejection: [Error [BetterAuthError]: Failed to initialize database adapter]
+ POST /api/auth/sign-in/email 405 in 37ms (compile: 21ms, render: 17ms)
+ GET /tasks 200 in 51ms (compile: 10ms, render: 41ms)
+ GET /api/auth/token 405 in 25ms (compile: 8ms, render: 17ms)
+ GET /api/auth/get-session 405 in 45ms (compile: 32ms, render: 12ms)
+ GET /api/auth/token 405 in 23ms (compile: 9ms, render: 14ms)
+ GET /api/auth/get-session 405 in 87ms (compile: 77ms, render: 10ms)
+ GET /auth/signin 200 in 170ms (compile: 38ms, render: 132ms)
+ GET /auth/signin 200 in 48ms (compile: 5ms, render: 43ms)
+Unhandled Rejection: [Error [BetterAuthError]: Failed to initialize database adapter]
+ POST /api/auth/sign-in/email 405 in 37ms (compile: 23ms, render: 15ms)
+ GET /tasks 200 in 69ms (compile: 11ms, render: 59ms)
+ GET /api/auth/token 405 in 19ms (compile: 7ms, render: 11ms)
+ GET /api/auth/get-session 405 in 48ms (compile: 33ms, render: 15ms)
+ GET /api/auth/token 405 in 18ms (compile: 8ms, render: 10ms)
+ GET /api/auth/get-session 405 in 18ms (compile: 5ms, render: 13ms)
+ GET /auth/signin 200 in 107ms (compile: 7ms, render: 100ms)
+ GET /auth/signin 200 in 78ms (compile: 5ms, render: 73ms)
+Unhandled Rejection: [Error [BetterAuthError]: Failed to initialize database adapter]
+ GET /auth/signup 200 in 1004ms (compile: 956ms, render: 48ms)
+ POST /api/auth/sign-up/email 405 in 38ms (compile: 24ms, render: 14ms)
+ GET /tasks 200 in 54ms (compile: 13ms, render: 41ms)
+ GET /api/auth/token 405 in 20ms (compile: 12ms, render: 8ms)
+ GET /api/auth/get-session 405 in 36ms (compile: 28ms, render: 8ms)
+ GET /api/auth/get-session 405 in 18ms (compile: 10ms, render: 8ms)
+ GET /api/auth/token 405 in 59ms (compile: 41ms, render: 18ms)
+ GET /auth/signin 200 in 114ms (compile: 9ms, render: 105ms)
+ GET /auth/signin 200 in 51ms (compile: 9ms, render: 42ms)
+Unhandled Rejection: [Error [BetterAuthError]: Failed to initialize database adapter]
+ POST /api/auth/sign-in/email 405 in 37ms (compile: 22ms, render: 15ms)
+ GET /tasks 200 in 58ms (compile: 9ms, render: 49ms)
+ GET /api/auth/get-session 405 in 24ms (compile: 14ms, render: 11ms)
+ GET /api/auth/token 405 in 39ms (compile: 25ms, render: 14ms)
+ GET /auth/signin 200 in 117ms (compile: 16ms, render: 101ms)
+ GET /api/auth/token 405 in 111ms (compile: 98ms, render: 13ms)
+ GET /api/auth/get-session 405 in 127ms (compile: 117ms, render: 10ms)
+ GET /auth/signin 200 in 56ms (compile: 8ms, render: 47ms)
+Unhandled Rejection: [Error [BetterAuthError]: Failed to initialize database adapter]
+ POST /api/auth/sign-in/email 405 in 30ms (compile: 21ms, render: 9ms)
+ GET /tasks 200 in 39ms (compile: 7ms, render: 32ms)
+ GET /api/auth/get-session 405 in 18ms (compile: 8ms, render: 10ms)
+ GET /api/auth/token 405 in 43ms (compile: 29ms, render: 14ms)
+ GET /api/auth/get-session 405 in 14ms (compile: 7ms, render: 7ms)
+ GET /api/auth/token 405 in 14ms (compile: 5ms, render: 9ms)
+ GET /auth/signin 200 in 171ms (compile: 15ms, render: 156ms)
+ GET /auth/signin 200 in 96ms (compile: 8ms, render: 88ms)
+Unhandled Rejection: [Error [BetterAuthError]: Failed to initialize database adapter]
+✓ Compiled in 63ms
+✓ Compiled in 75ms
+ GET /auth/signin 200 in 682ms (compile: 213ms, render: 469ms)
+ POST /api/auth/sign-in/email 405 in 33ms (compile: 19ms, render: 15ms)
+Unhandled Rejection: [Error [BetterAuthError]: Failed to initialize database adapter]
+ POST /api/auth/sign-in/email 405 in 27ms (compile: 18ms, render: 9ms)
+Unhandled Rejection: [Error [BetterAuthError]: Failed to initialize database adapter]
+ GET /auth/signup 200 in 71ms (compile: 13ms, render: 58ms)
+ POST /api/auth/sign-up/email 405 in 31ms (compile: 23ms, render: 8ms)
+ GET /tasks 200 in 205ms (compile: 148ms, render: 58ms)
+ GET /api/auth/get-session 405 in 65ms (compile: 54ms, render: 10ms)
+ GET /api/auth/get-session 405 in 14ms (compile: 5ms, render: 8ms)
+ GET /auth/signin 200 in 113ms (compile: 23ms, render: 90ms)
+ GET /auth/signin 200 in 47ms (compile: 5ms, render: 41ms)
+Unhandled Rejection: [Error [BetterAuthError]: Failed to initialize database adapter]
+ POST /api/auth/sign-in/email 405 in 42ms (compile: 27ms, render: 14ms)
+Unhandled Rejection: [Error [BetterAuthError]: Failed to initialize database adapter]
+ POST /api/auth/sign-in/email 405 in 57ms (compile: 37ms, render: 20ms)
+Unhandled Rejection: [Error [BetterAuthError]: Failed to initialize database adapter]
+ POST /api/auth/sign-in/email 405 in 53ms (compile: 34ms, render: 19ms)
+Unhandled Rejection: [Error [BetterAuthError]: Failed to initialize database adapter]
+ POST /api/auth/sign-in/email 405 in 31ms (compile: 23ms, render: 9ms)
+Unhandled Rejection: [Error [BetterAuthError]: Failed to initialize database adapter]
+ GET /auth/signup 200 in 58ms (compile: 10ms, render: 48ms)
+ POST /api/auth/sign-up/email 405 in 27ms (compile: 19ms, render: 8ms)
+ GET /tasks 200 in 38ms (compile: 7ms, render: 31ms)
+ GET /api/auth/get-session 405 in 16ms (compile: 5ms, render: 11ms)
+ GET /api/auth/get-session 405 in 19ms (compile: 9ms, render: 10ms)
+ GET /auth/signin 200 in 85ms (compile: 27ms, render: 58ms)
+ GET /auth/signin 200 in 56ms (compile: 13ms, render: 43ms)
+Unhandled Rejection: [Error [BetterAuthError]: Failed to initialize database adapter]
+ POST /api/auth/sign-in/email 405 in 35ms (compile: 22ms, render: 13ms)
+Unhandled Rejection: [Error [BetterAuthError]: Failed to initialize database adapter]
+ GET /api/auth/jwks 405 in 25ms (compile: 17ms, render: 8ms)
+Unhandled Rejection: [Error [BetterAuthError]: Failed to initialize database adapter]
+ GET / 200 in 268ms (compile: 15ms, render: 253ms)
+ GET /tasks 200 in 313ms (compile: 7ms, render: 307ms)
+ GET /api/auth/get-session 405 in 30ms (compile: 18ms, render: 12ms)
+ GET /auth/signin 200 in 50ms (compile: 5ms, render: 45ms)
+Unhandled Rejection: [Error [BetterAuthError]: Failed to initialize database adapter]
+ GET /auth/signup 200 in 96ms (compile: 14ms, render: 82ms)
+ POST /api/auth/sign-up/email 405 in 29ms (compile: 19ms, render: 10ms)
+ GET /tasks 200 in 51ms (compile: 8ms, render: 43ms)
+ GET /api/auth/get-session 405 in 21ms (compile: 11ms, render: 11ms)
+ GET /api/auth/get-session 405 in 20ms (compile: 8ms, render: 12ms)
+ GET /auth/signin 200 in 154ms (compile: 32ms, render: 122ms)
+ GET /auth/signin 200 in 75ms (compile: 11ms, render: 65ms)
+Unhandled Rejection: [Error [BetterAuthError]: Failed to initialize database adapter]
+ POST /api/auth/sign-in/email 405 in 23ms (compile: 16ms, render: 8ms)
+Unhandled Rejection: [Error [BetterAuthError]: Failed to initialize database adapter]
+ GET /auth/signin 200 in 310ms (compile: 22ms, render: 288ms)
+  Reload env: .env.local
+[?25h
